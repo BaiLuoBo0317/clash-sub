@@ -1,0 +1,23 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+proxies:
+  - name: 日本-unknown
+    type: trojan
+    server: 153.121.65.107
+    port: 4674
+    password: 9f7d5cb76d1645101994d9b25891e3b7
+    sni: www.nintendogames.net
+    skip-cert-verify: true
+    udp: true
+
+proxy-groups:
+  - name: 🚀 节点选择
+    type: select
+    proxies:
+      - 日本-unknown
+
+rules:
+  - MATCH,🚀 节点选择
